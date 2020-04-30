@@ -9,18 +9,15 @@
 using namespace std;
 
 int main() {
-	Sales_data data1, data2;
-	// 입력을 읽어 data1과 data2에 넣는 코드
+	Sales_data item1, item2;
+	// 입력을 읽어 item1과 item2에 넣는 코드
 	double price = 0;
-	cin >> data1.bookNo >> data1.units_sold >> price;
-	data1.revenue = data1.units_sold * price;
-	cin >> data2.bookNo >> data2.units_sold >> price;
-	data2.revenue = data2.units_sold * price;
+	cin >> item1 >> item2;
 
-	if (data1.bookNo == data2.bookNo) {
-		unsigned totalCnt = data1.units_sold + data2.units_sold;
-		double totalRevenue = data1.revenue + data2.revenue;
-		cout << data1.bookNo << " " << totalCnt
+	if (item1.bookNo != item2.bookNo) {
+		unsigned totalCnt = item1.units_sold + item2.units_sold;
+		double totalRevenue = item1.revenue + item2.revenue;
+		cout << item1.bookNo << " " << totalCnt
 			<< " " << totalRevenue << " ";
 		if (totalCnt != 0)
 			cout << totalRevenue / totalCnt << endl;
@@ -31,6 +28,6 @@ int main() {
 			<< endl;
 		return -1;
 	}
-
+	cin >> price;
 	return 0;
 }
