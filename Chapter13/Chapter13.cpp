@@ -3,10 +3,43 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+class Foo {
+public:
+	Foo sorted()&&;
+	Foo sorted() const&;
+private:
+	vector<int> data;
+};
+
+Foo Foo::sorted()&& {
+	cout << "Calling sorted()&&" << endl;
+	sort(data.begin(), data.end());
+	return *this;
+}
+
+Foo Foo::sorted() const& {
+	cout << "Calling sorted() const&&, copying myself" << endl;
+	// Foo ret(*this);
+	// return ret.sorted(); <-- this will make infinite recursive call
+	return Foo(*this).sorted(); // <-- Foo(*this) makes unnamed instance (i.e. rvalue)
+}
+
+Foo& retFoo() {
+	return *(new Foo());
+}
+
+Foo retVal() {
+	return Foo();
+}
+
+int main() {
+	retVal().sorted();
+	retFoo().sorted();
+	return 0;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
