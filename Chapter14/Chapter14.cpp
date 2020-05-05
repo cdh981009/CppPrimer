@@ -14,7 +14,7 @@ int main() {
 	double price = 0;
 	cin >> item1 >> item2;
 
-	if (item1.bookNo != item2.bookNo) {
+	if (item1.bookNo == item2.bookNo) {
 		unsigned totalCnt = item1.units_sold + item2.units_sold;
 		double totalRevenue = item1.revenue + item2.revenue;
 		cout << item1.bookNo << " " << totalCnt
