@@ -10,5 +10,5 @@ public:
 	double revenue = 0.0;
 };
 
-ostream& operator<<(ostream& os, const Sales_data& item);
-istream& operator>>(istream& is, Sales_data& item);
+std::ostream& operator<<(std::ostream& os, const Sales_data& item);
+std::istream& operator>>(std::istream& is, Sales_data& item);
