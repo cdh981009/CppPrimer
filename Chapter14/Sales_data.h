@@ -13,7 +13,7 @@ public:
 	Sales_data(const std::string& s): bookNo(s) { }
 	inline std::string isbn() const { return bookNo; }
 	Sales_data& operator+=(const Sales_data& rhs);
-	double avg_price() const { return revenue / units_sold; }
+	double avg_price() const;
 private:
 	std::string bookNo;
 	unsigned units_sold = 0;

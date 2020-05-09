@@ -30,3 +30,10 @@ Sales_data operator+(const Sales_data& lhs, const Sales_data& rhs) {
 	sum += rhs;
 	return sum;
 }
+
+double Sales_data::avg_price() const {
+	if (units_sold)
+		return revenue / units_sold;
+	else
+		return 0;
+}
