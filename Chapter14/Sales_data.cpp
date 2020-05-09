@@ -7,7 +7,8 @@
 using namespace std;
 
 ostream& operator<<(ostream& os, const Sales_data& item) {
-	os << item.isbn() << " " << item.units_sold << " " << item.revenue << endl;
+	os << item.isbn() << " " << item.units_sold << " "
+		<< item.revenue << " " << item.avg_price();
 	return os;
 }
 
