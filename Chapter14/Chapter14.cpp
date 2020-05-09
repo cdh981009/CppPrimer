@@ -14,21 +14,17 @@ int main() {
 	while (cin >> item1 >> item2) {
 		try {
 			if (item1.isbn() == item2.isbn()) {
-				unsigned totalCnt = item1.units_sold + item2.units_sold;
-				double totalRevenue = item1.revenue + item2.revenue;
-				cout << item1.isbn() << " " << totalCnt
-					<< " " << totalRevenue << " ";
-				if (totalCnt != 0)
-					cout << totalRevenue / totalCnt << endl;
-				else
-					cout << "(no sales)" << endl;
+				cout << item1 + item2 << endl;
 			} else {
-				cerr << "Data must refer to the same ISBN"
-					<< endl;
+				throw runtime_error("Data must refer to same ISBN");
 			}
 		} catch (runtime_error err) {
 			cout << err.what()
 				<< "\nTry Again? Enter y or n" << endl;
+			char c;
+			cin >> c;
+			if (!cin || c == 'n')
+				break;
 		}
 	}
 	return 0;
