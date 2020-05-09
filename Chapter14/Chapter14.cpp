@@ -10,22 +10,20 @@
 using namespace std;
 
 int main() {
-	Sales_data item1, item2;
-	while (cin >> item1 >> item2) {
-		try {
-			if (item1.isbn() == item2.isbn()) {
-				cout << item1 + item2 << endl;
+	Sales_data total;
+	if (cin >> total) {
+		Sales_data trans;
+		while (cin >> trans) {
+			if (total.isbn() == trans.isbn()) {
+				total += trans;
 			} else {
-				throw runtime_error("Data must refer to same ISBN");
+				cout << total << endl;
+				total = trans;
 			}
-		} catch (runtime_error err) {
-			cout << err.what()
-				<< "\nTry Again? Enter y or n" << endl;
-			char c;
-			cin >> c;
-			if (!cin || c == 'n')
-				break;
 		}
+		cout << total << endl;
+	} else {
+		cerr << "No data" << endl;
 	}
 	return 0;
 }
