@@ -13,9 +13,11 @@ ostream& operator<<(ostream& os, const Sales_data& item) {
 }
 
 istream& operator>>(istream& is, Sales_data& item) {
-	double price = 0;
+	double price;
 	is >> item.bookNo >> item.units_sold >> price;
-	item.revenue = item.units_sold * price;
+	if (is)
+		item.revenue = item.units_sold * price;
+	else item = Sales_data();
 	return is;
 }
 
@@ -29,11 +31,4 @@ Sales_data operator+(const Sales_data& lhs, const Sales_data& rhs) {
 	Sales_data sum = lhs;
 	sum += rhs;
 	return sum;
-}
-
-double Sales_data::avg_price() const {
-	if (units_sold)
-		return revenue / units_sold;
-	else
-		return 0;
 }
