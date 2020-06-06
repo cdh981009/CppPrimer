@@ -29,5 +29,8 @@
     <ClInclude Include="Bulk_quote.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Disc_quote.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
