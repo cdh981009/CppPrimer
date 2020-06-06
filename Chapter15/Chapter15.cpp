@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "Quote.h"
+#include "Disc_quote.h"
 #include "Bulk_Quote.h"
 
 using namespace std;
@@ -16,7 +17,14 @@ double print_total(ostream& os, const Quote& item, size_t n) {
 }
 
 int main() {
-	std::cout << "Hello World!\n";
+	Quote basic("A", 10);
+	Bulk_quote bulk("A", 5, 5, 0.5);
+	print_total(cout, basic, 20);
+	print_total(cout, bulk, 20);
+
+	Quote* itemP = new Bulk_quote(bulk);
+	delete itemP;
+	return 0;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
