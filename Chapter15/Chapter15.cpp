@@ -2,28 +2,23 @@
 //
 
 #include <iostream>
+#include <memory>
 
 #include "Quote.h"
 #include "Disc_quote.h"
 #include "Bulk_Quote.h"
+#include "Basket.h"
 
 using namespace std;
 
-double print_total(ostream& os, const Quote& item, size_t n) {
-	double ret = item.net_price(n);
-	os << "ISBN: " << item.isbn()
-		<< " # sold: " << n << " total due: " << ret << endl;
-	return ret;
-}
-
 int main() {
-	Quote basic("A", 10);
-	Bulk_quote bulk("A", 5, 5, 0.5);
-	print_total(cout, basic, 20);
-	print_total(cout, bulk, 20);
+	Basket bsk;
+	bsk.add_item(make_shared<Quote>("123", 45));
+	bsk.add_item(make_shared<Bulk_quote>("345", 10, 3, .5));
+	bsk.add_item(make_shared<Bulk_quote>("345", 10, 3, .5));
+	bsk.add_item(make_shared<Bulk_quote>("345", 10, 3, .5));
 
-	Quote* itemP = new Bulk_quote(bulk);
-	delete itemP;
+	bsk.total_receipt(cout);
 	return 0;
 }
 
