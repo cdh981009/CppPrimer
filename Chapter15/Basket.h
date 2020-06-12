@@ -8,8 +8,11 @@
 
 class Basket {
 public:
-	void add_item(const std::shared_ptr<Quote>& sale) {
-		items.insert(sale);
+	void add_item(const Quote& sale) {
+		items.insert(std::shared_ptr<Quote>(sale.clone()));
+	}
+	void add_item(Quote&& sale) {
+		items.insert(std::shared_ptr<Quote>(std::move(sale).clone()));
 	}
 	double total_receipt(std::ostream&) const;
 private:
