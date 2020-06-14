@@ -20,6 +20,10 @@ int main() {
 	bsk.add_item(make_shared<Bulk_quote>("345", 10, 3, .5));
 	bsk.add_item(make_shared<Bulk_quote>("345", 10, 3, .5));
 	*/
+	bsk.add_item(Quote("123", 45));
+	bsk.add_item(Bulk_quote("345", 10, 3, .5));
+	bsk.add_item(Bulk_quote("345", 10, 3, .5));
+	bsk.add_item(Bulk_quote("345", 10, 3, .5));
 
 	bsk.total_receipt(cout);
 	return 0;
