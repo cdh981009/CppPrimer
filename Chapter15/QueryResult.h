@@ -21,3 +21,5 @@ private:
 	std::shared_ptr<std::set<line_no>> lines;
 	std::shared_ptr<std::vector<std::string>> file;
 };
+
+std::ostream& print(std::ostream& os, const QueryResult& qr);

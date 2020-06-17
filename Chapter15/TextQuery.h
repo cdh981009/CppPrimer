@@ -18,3 +18,5 @@ private:
 	std::shared_ptr<std::vector<std::string>> file;
 	std::map<std::string, std::shared_ptr<std::set<line_no>>> wm;
 };
+
+void runQueries(std::ifstream& infile);
