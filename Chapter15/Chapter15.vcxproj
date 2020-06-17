@@ -156,6 +156,7 @@
     <ClInclude Include="Quote.h" />
     <ClInclude Include="TextQuery.h" />
     <ClInclude Include="Utility.h" />
+    <ClInclude Include="WordQuery.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

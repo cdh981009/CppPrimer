@@ -7,6 +7,7 @@
 #include "TextQuery.h"
 #include "QueryResult.h"
 #include "Query_base.h"
+#include "WordQuery.h"
 
 class Query {
 	friend Query operator~(const Query&);
@@ -28,3 +29,5 @@ private:
 std::ostream& operator<<(std::ostream& os, const Query& query) {
 	return os << query.rep();
 }
+
+inline Query::Query(const std::string& s) : q(new WordQuery(s)) { }
