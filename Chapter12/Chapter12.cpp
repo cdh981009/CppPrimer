@@ -25,6 +25,7 @@ ostream& print(ostream& os, const QueryResult& qr) {
 		   << *(qr.file->begin() + num) << endl;
 	return os;
 }
+
 void runQueries(ifstream& infile) {
 	TextQuery tq(infile);
 
