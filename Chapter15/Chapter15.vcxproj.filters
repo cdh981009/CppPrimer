@@ -30,6 +30,9 @@
     <ClCompile Include="TextQuery.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Quote.h">
@@ -48,6 +51,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="TextQuery.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Query.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
