@@ -56,13 +56,7 @@
     <ClInclude Include="Utility.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Query_base.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Query.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="WordQuery.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

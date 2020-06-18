@@ -151,12 +151,10 @@
     <ClInclude Include="Bulk_quote.h" />
     <ClInclude Include="Disc_quote.h" />
     <ClInclude Include="Query.h" />
-    <ClInclude Include="Query_base.h" />
     <ClInclude Include="QueryResult.h" />
     <ClInclude Include="Quote.h" />
     <ClInclude Include="TextQuery.h" />
     <ClInclude Include="Utility.h" />
-    <ClInclude Include="WordQuery.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
