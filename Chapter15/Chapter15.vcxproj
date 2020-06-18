@@ -142,6 +142,7 @@
     <ClCompile Include="Basket.cpp" />
     <ClCompile Include="Bulk_quote.cpp" />
     <ClCompile Include="Chapter15.cpp" />
+    <ClCompile Include="OrQuery.cpp" />
     <ClCompile Include="Quote.cpp" />
     <ClCompile Include="TextQuery.cpp" />
     <ClCompile Include="Utility.cpp" />
