@@ -1,9 +1,5 @@
-#include <fstream>
 #include <iostream>
-#include <map>
-#include <set>
 #include <sstream>
-#include <vector>
 
 #include "TextQuery.h"
 #include "QueryResult.h"
@@ -37,7 +33,7 @@ QueryResult TextQuery::query(const string& sought) const {
 		return QueryResult(sought, loc->second, file);
 }
 
-ostream& print(ostream& os, const QueryResult& qr) {
+ostream& operator<<(ostream& os, const QueryResult& qr) {
 	os << qr.sought << " occurs " << qr.lines->size() << " "
 		<< make_plural(qr.lines->size(), "time", "s") << endl;
 	for (auto num : *qr.lines)
@@ -53,6 +49,6 @@ void runQueries(ifstream& infile) {
 		cout << "enther word to look for, or q to quit: ";
 		string s;
 		if (!(cin >> s) || s == "q") break;
-		print(cout, tq.query(s)) << endl;
+		cout << tq.query(s) << endl;
 	}
 }

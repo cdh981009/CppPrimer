@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AndQuery.cpp" />
     <ClCompile Include="Basket.cpp" />
     <ClCompile Include="Bulk_quote.cpp" />
     <ClCompile Include="Chapter15.cpp" />
+    <ClCompile Include="NotQuery.cpp" />
     <ClCompile Include="OrQuery.cpp" />
     <ClCompile Include="Quote.cpp" />
     <ClCompile Include="TextQuery.cpp" />
@@ -156,6 +158,9 @@
     <ClInclude Include="Quote.h" />
     <ClInclude Include="TextQuery.h" />
     <ClInclude Include="Utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

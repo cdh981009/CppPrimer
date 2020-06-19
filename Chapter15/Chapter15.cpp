@@ -3,13 +3,21 @@
 
 #include <iostream>
 #include <memory>
+#include <fstream>
 
 #include "Quote.h"
 #include "Disc_quote.h"
 #include "Bulk_Quote.h"
 #include "Basket.h"
+#include "Query.h"
+#include "TextQuery.h"
+#include "Utility.h"
 
 using namespace std;
+
+inline std::ostream& operator<<(std::ostream& os, const Query& query) {
+	return os << query.rep();
+}
 
 int main() {
 	/*
@@ -28,5 +36,10 @@ int main() {
 
 	bsk.total_receipt(cout);
 	*/
+	ifstream infile("input.txt");
+	TextQuery tq(infile);
+	Query q = Query("you") | Query("can't") | Query("Can't");
+	cout << q.eval(tq) << endl;
+
 	return 0;
 }

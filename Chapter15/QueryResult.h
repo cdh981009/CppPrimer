@@ -1,15 +1,11 @@
 #pragma once
 
 #include <iostream>
-#include <set>
-#include <vector>
-#include <memory>
-#include <string>
 
 #include "TextQuery.h"
 
 class QueryResult {
-	friend std::ostream& print(std::ostream&, const QueryResult&);
+	friend std::ostream& operator<<(std::ostream&, const QueryResult&);
 public:
 	using line_no = TextQuery::line_no;
 	QueryResult(std::string s,
@@ -31,4 +27,4 @@ private:
 	std::shared_ptr<std::vector<std::string>> file;
 };
 
-std::ostream& print(std::ostream& os, const QueryResult& qr);
+std::ostream& operator<<(std::ostream& os, const QueryResult& qr);

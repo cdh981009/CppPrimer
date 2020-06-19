@@ -2,7 +2,6 @@
 
 #include <string>
 #include <memory>
-#include <iostream>
 
 #include "TextQuery.h"
 #include "QueryResult.h"
@@ -33,10 +32,6 @@ private:
 	Query(std::shared_ptr<Query_base> query) : q(query) { }
 	std::shared_ptr<Query_base> q;
 };
-
-std::ostream& operator<<(std::ostream& os, const Query& query) {
-	return os << query.rep();
-}
 
 class WordQuery : public Query_base {
 	friend class Query;
