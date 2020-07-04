@@ -36,13 +36,14 @@ private:
 template <typename T>
 void shared_pointer<T>::reset(T* p, void(*d)(T*)) {
 	decreaseRef();
+	refCnt = new size_t(1);
 	this->p = p;
 	del = d;
 }
 
 template <typename T>
 shared_pointer<T>* shared_pointer<T>::operator=(const shared_pointer& rhs) {
-	reset();
+	decreaseRef();
 	refCnt = rhs.refCnt;
 	(*refCnt)++;
 	p = rhs.p;

@@ -11,10 +11,14 @@ using namespace std;
 
 int main() {
 	{
-		shared_pointer<int> p1(new int(32), [](int* p) {
-			cout << "deleting pointer containing integer: " << *p << endl;
-			delete p;
-							   });
+		shared_pointer<int> p1;
+		{
+			auto f = [](int* p) {
+				cout << "deleting pointer containing integer: " << *p << endl;
+				delete p;
+			};
+			p1.reset(new int(11), f);
+		}
 		cout << *p1 << endl;
 		cout << p1.unique() << " " << p1.use_count() << endl;
 		{
