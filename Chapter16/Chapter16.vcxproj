@@ -142,6 +142,7 @@
     <ClCompile Include="Chapter16.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="shared_pointer.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
