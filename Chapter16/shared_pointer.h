@@ -4,8 +4,8 @@ template <typename T>
 class shared_pointer{
 public:
 	shared_pointer() : refCnt(nullptr), p(nullptr), del(nullptr) { }
-	explicit shared_pointer(T *p, void (*d) = nullptr) : refCnt(new size_t(1)), p(p), del(d) { }
-	shared_pointer(const shared_pointer& p2, void(*d) = nullptr) : refCnt(p2.refCnt), p(p2.p), del(d ? d : p2.del) {
+	explicit shared_pointer(T *p, void (*d)(T*) = nullptr) : refCnt(new size_t(1)), p(p), del(d) { }
+	shared_pointer(const shared_pointer& p2, void(*d)(T*) = nullptr) : refCnt(p2.refCnt), p(p2.p), del(d ? d : p2.del) {
 		(*refCnt)++;
 	}
 	~shared_pointer() { decreaseRef(); }
@@ -24,17 +24,17 @@ public:
 	T* operator->() const {
 		return &this->operator*();
 	}
-	void reset(T* p = nullptr, void (*d) = nullptr);
+	void reset(T* p = nullptr, void (*d)(T*) = nullptr);
 	T* get() { return p; }
 private:
 	size_t *refCnt;
 	T *p;
-	void (*del);
+	void (*del)(T*);
 	void decreaseRef();
 };
 
 template <typename T>
-void shared_pointer<T>::reset(T* p, void(*d)) {
+void shared_pointer<T>::reset(T* p, void(*d)(T*)) {
 	decreaseRef();
 	this->p = p;
 	del = d;
@@ -53,7 +53,9 @@ template <typename T>
 void shared_pointer<T>::decreaseRef() {
 	if (refCnt) {
 		(*refCnt)--;
-		if (*refCnt == 0)
-			del ? del(this->p) : delete this->p;
+		if (*refCnt == 0) {
+			del ? del(this->p) : (delete (this->p));
+			delete refCnt;
+		}
 	}
 }
