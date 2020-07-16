@@ -2,6 +2,7 @@
 
 #include "Util.h"
 #include "shared_pointer.h"
+#include "template.h"
 
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -10,30 +11,15 @@
 using namespace std;
 
 int main() {
-	{
-		shared_pointer<int> p1;
-		{
-			auto f = [](int* p) {
-				cout << "deleting pointer containing integer: " << *p << endl;
-				delete p;
-			};
-			p1.reset(new int(11), f);
-		}
-		cout << *p1 << endl;
-		cout << p1.unique() << " " << p1.use_count() << endl;
-		{
-			auto p2 = p1;
-			cout << p1.unique() << " " << p1.use_count() << " " << p2.use_count() << endl;
-			{
-				auto p3 = p2;
-				*p3 = 11;
-				cout << p1.unique() << " " << p1.use_count() << " " << p2.use_count() << endl;
-				cout << *p1 << " " << p1.use_count() << " " << p2.use_count() << endl;
-				
-			}
-			cout << p1.unique() << " " << p1.use_count() << " " << p2.use_count() << endl;
-		}
-		cout << p1.unique() << " " << p1.use_count() << endl;
-	}
-	_CrtDumpMemoryLeaks();
+	int i = 42, * p = &i;
+	const int ci = 0, * p2 = &ci;
+	g(42);
+	g(p);
+	g(ci);
+	g(p2);
+	f(42);
+	f(p);
+	f(ci);
+	f(p2);
+	return 0;
 }
